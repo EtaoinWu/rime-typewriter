@@ -8,6 +8,10 @@ var Combo = new Class({
     key_value: { 
     },
 
+    split_pm: function(pm) {
+        return pm.split('-');
+    },
+
     pm2py: function(pm) {
         var py = pm
         ;
@@ -57,7 +61,7 @@ var Combo = new Class({
         if (this._pm == undefined)
             return;
 
-        var pm_array = this._pm.split('-');
+        var pm_array = this.split_pm(this._pm);
         for (var i = 0; i < pm_array.length; ++i) {
             var key = this._pm_keymap[pm_array[i]];
             $('#key_' + key).addClass('missing');
